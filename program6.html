@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <body
+    ng-init="tasks=[{text:'task 1',editing:false},{text:'task 2',editing:false}]"
+  >
+    <input type="text" placeholder="enter you task " ng-model="newTask" />
+    <button ng-click="tasks.push({text:newTask}); newTask=' ' ">Add</button>
+
+    <ul>
+      <li ng-repeat="s in tasks">
+        <span ng-hide="s.editing" ng-bind="s.text"></span>
+        <input type="text" ng-show="s.editing" ng-model="s.text" />
+        <button ng-click="s.editing = !s.editing">
+          {{s.editing? 'Save':'Edit'}}
+        </button>
+        <button ng-click="tasks.splice($index,1)">Delete</button>
+      </li>
+    </ul>
+  </body>
+</html>

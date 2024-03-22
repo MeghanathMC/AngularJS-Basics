@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <body ng-controller="myCtrl">
+    <input type="number" ng-model="number1" placeholder="Number 1" />
+    <input type="number" ng-model="number2" placeholder="Number 2 " />
+    <button ng-click="result= number1 + number2">Addition</button> <br />
+    <button ng-click="result= number1 - number2">Substraction</button> <br />
+    <button ng-click="result= number1 * number2">Multiplication</button> <br />
+    <button ng-click="result=div()">Division</button>
+    <p>Result : {{result}}</p>
+  </body>
+  <script>
+    angular.module("myApp", []).controller("myCtrl", function ($scope) {
+      $scope.div = function () {
+        if ($scope.number2 != 0) {
+          return $scope.number1 / $scope.number2;
+        } else {
+          alert("division not possible");
+        }
+      };
+    });
+  </script>
+</html>

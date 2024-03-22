@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <body ng-init="items=['item 1','item 2']">
+    <input type="text" ng-model="newitem" placeholder="enter item " />
+    <button ng-click="items.push(newitem) && newitem ; newitem =' ';">
+      ADD
+    </button>
+    <ul>
+      <li ng-repeat="item in items">
+        {{item}}
+        <button ng-click="items.splice($index,1)">Delete</button>
+      </li>
+    </ul>
+  </body>
+</html>

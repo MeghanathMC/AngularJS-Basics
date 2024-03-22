@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+      body {
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+      }
+      form {
+        background-color: #ffffff;
+        width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      input[type="text"],
+      input[type="password"],
+      button[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+      input[type="text"]:focus,
+      input[type="password"]:focus {
+        outline: none;
+        border-color: #66afe9;
+      }
+      button[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        cursor: pointer;
+      }
+      button[type="submit"]:hover {
+        background-color: #45a049;
+      }
+      p {
+        color: #008000;
+        font-weight: bold;
+        text-align: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body ng-app="">
+    <form ng-submit="submitted=true">
+      <input type="text" placeholder="Username" ng-model="name" required />
+      <br />
+      <input type="password" placeholder="password" ng-model="pass" required />
+      <button type="submit">Login!!</button>
+    </form>
+
+    <p ng-if="submitted">Login Succesfully!!</p>
+  </body>
+</html>

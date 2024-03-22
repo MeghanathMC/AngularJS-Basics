@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+  <head>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+        }
+        form {
+          background-color: #f0f0f0;
+          width: 300px;
+          padding: 20px;
+          margin-bottom: 20px;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"],
+        input[type="number"],
+        button[type="submit"] {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          box-sizing: border-box;
+        }
+        input[type="text"]:focus,
+        input[type="number"]:focus {
+          outline: none;
+          border-color: #66afe9;
+        }
+        button[type="submit"] {
+          background-color: #4caf50;
+          color: white;
+          cursor: pointer;
+        }
+        button[type="submit"]:hover {
+          background-color: #45a049;
+        }
+        input[type="text"]::placeholder,
+        input[type="number"]::placeholder {
+          color: #999;
+        }
+        ul {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+        }
+        li {
+          background-color: #ffffff;
+          padding: 10px;
+          margin-bottom: 5px;
+          border-radius: 5px;
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <body ng-init="emps=[{name:'toce',salary:24543}]">
+    <form
+      ng-submit="emps.push({name:name,salary:salary}); name='' ; salary=null;"
+    >
+      <input type="text" placeholder="Name" ng-model="name" />
+      <input type="number" placeholder="Salary" ng-model="salary" />
+      <button type="submit">ADD</button>
+    </form>
+    <input type="text" placeholder="Search By Name" ng-model="sname" />
+    <input type="number" placeholder="Search By Salary" ng-model="ssalary" />
+
+    <ul>
+      <li
+        ng-repeat="emp in emps | filter:{name:sname,salary:(ssalary || undefined)}"
+      >
+        {{emp.name}} - {{emp.salary}}$
+      </li>
+    </ul>
+  </body>
+</html>

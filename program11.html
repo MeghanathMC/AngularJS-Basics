@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <body
+    ng-init="students=[{
+    name:'meghanath',
+    usn:'1ox21cs083'},{
+    name:'lohan',
+    usn:'1ox21cs075'
+  }]"
+    ;uppercase:false
+  >
+    <label for="">
+      <input type="checkbox" name="" id="" ng-model="uppercase" />convert to
+      uppercase
+    </label>
+    <table border="2">
+      <tr>
+        <th>USN</th>
+        <th>Name</th>
+      </tr>
+      <tr ng-repeat="st in students">
+        <td>{{uppercase ? (st.usn | uppercase) : st.usn}}</td>
+        <td>{{uppercase ? (st.name | uppercase) : st.name}}</td>
+      </tr>
+    </table>
+  </body>
+</html>

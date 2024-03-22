@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <body ng-controller="myCtrl">
+    <p>Current Date : {{cd}}</p>
+    <p>Full Date : {{cd | date}}</p>
+    <p>Short Date : {{cd | date:'short'}}</p>
+    <p>Medium Date : {{cd | date:'medium'}}</p>
+  </body>
+  <script>
+    angular.module("myApp", []).controller("myCtrl", function ($scope) {
+      $scope.cd = new Date();
+    });
+  </script>
+</html>

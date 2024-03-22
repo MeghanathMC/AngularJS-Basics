@@ -1,0 +1,93 @@
+<!-- <!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <body
+    ng-controller="MainController"
+    ng-init="uList=[]; newUser={}; editIndex=-1; numEntries=1"
+  >
+    <input type="text" ng-model="newUser.name" placeholder="Name" />
+    <input type="text" ng-model="newUser.mail" placeholder="Email" />
+    <button ng-click="addUser()">Add User</button>
+    <input
+      type="number"
+      placeholder="Number of entries"
+      ng-model="numEntries"
+    />
+    <button ng-click="selectedEntries = numEntries">View</button>
+    <ul>
+      <li ng-repeat="user in uList | limitTo:selectedEntries">
+        <span ng-if="editIndex !== $index">{{user.name}} - {{user.mail}}</span>
+        <button ng-click="editUser($index)">
+          {{editIndex === $index ? 'Save' : 'Edit'}}
+        </button>
+        <button ng-click="deleteUser($index)">Delete</button>
+        <div ng-if="editIndex === $index">
+          <input type="text" ng-model="user.name" />
+          <input type="text" ng-model="user.mail" />
+        </div>
+      </li>
+    </ul>
+
+    <script>
+      angular
+        .module("myApp", [])
+        .controller("MainController", function ($scope) {
+          $scope.addUser = function () {
+            $scope.uList.push({
+              name: $scope.newUser.name,
+              mail: $scope.newUser.mail,
+            });
+            $scope.newUser = {};
+          };
+
+          $scope.editUser = function (index) {
+            $scope.editIndex = $scope.editIndex === index ? -1 : index;
+          };
+
+          $scope.deleteUser = function (index) {
+            $scope.uList.splice(index, 1);
+          };
+        });
+    </script>
+  </body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en" ng-app>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <body ng-init="uList=[]; nUser={}; editIndex=-1; numEntries=1">
+    <input ng-model="nUser.name" placeholder="Name" />
+    <input ng-model="nUser.email" placeholder="Email" />
+    <button
+      ng-click="uList.push({name: nUser.name, email: nUser.email}); 
+nUser={}"
+    >
+      Add User
+    </button>
+    <input
+      type="number"
+      ng-model="numEntries"
+      placeholder="Number of 
+entries"
+    />
+    <button ng-click="selectedEntries = numEntries">View</button>
+    <ul>
+      <li ng-repeat="user in uList | limitTo:selectedEntries">
+        <span ng-if="editIndex !== $index"
+          >{{ user.name }} - {{ user.email }}</span
+        >
+        <button ng-click="editIndex = editIndex === $index ? -1 : $index">
+          {{ editIndex === $index ? 'Save' : 'Edit' }}
+        </button>
+        <button ng-click="uList.splice($index, 1)">Delete</button>
+        <div ng-if="editIndex === $index">
+          <input ng-model="user.name" />
+          <input ng-model="user.email" />
+        </div>
+      </li>
+    </ul>
+  </body>
+</html>

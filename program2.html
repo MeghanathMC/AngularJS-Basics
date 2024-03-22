@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <body ng-controller="myCtrl">
+    <input type="text" ng-model="newItem" placeholder="Enter Item" />
+    <button ng-click="updateItem(newItem)">Add</button>
+
+    <ul>
+      <li ng-repeat="item in items">
+        {{item}}
+        <button ng-click="items.splice($index,1)">Remove</button>
+      </li>
+    </ul>
+  </body>
+  <script>
+    angular.module("myApp", []).controller("myCtrl", function ($scope) {
+      $scope.items = ["Apples", "Eggs", "Milk"];
+      $scope.updateItem = function (item) {
+        item = $scope.items.push(item);
+        $scope.newItem = " ";
+      };
+    });
+  </script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <body ng-init="s=[{usn:'1OX21CS083',name:'Meghanath',cgpa: 9.2}]">
+    <input type="text" placeholder="USN" ng-model="as.usn" />
+    <input type="text" placeholder="Name" ng-model="as.name" />
+    <input type="number" placeholder="CGPA" ng-model="as.cgpa" />
+    <button ng-click="s.push(as); as={}">Add Student</button>
+
+    <table border="2">
+      <tr>
+        <th>USN</th>
+        <th>Name</th>
+        <th>CGPA</th>
+      </tr>
+      <tr ng-repeat="f in s">
+        <td>{{f.usn}}</td>
+        <td>{{f.name}}</td>
+        <td>{{f.cgpa}}</td>
+      </tr>
+    </table>
+
+    <p>Total Length : {{s.length}}</p>
+  </body>
+</html>

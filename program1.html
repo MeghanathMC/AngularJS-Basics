@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <body ng-init="firstName=''; lastName='';">
+    <h2>Name Display</h2>
+    <h3>Dynamic Content Binding</h3>
+    <input type="text" ng-model="firstName" placeholder="your First Name" />
+    <input type="text" ng-model="lastName" placeholder="your Last Name" />
+    <p>Your Name : {{firstName + ' '+ lastName}}</p>
+  </body>
+</html>
